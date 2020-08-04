@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-class Home
+class Home extends \Core\Controller
 {
-    public function index()
+    public function indexAction()
     {
         echo "Test";
     }
