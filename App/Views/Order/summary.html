@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Summary
+{% endblock %}
+
+{% block content %}
+
+    <section class="container-fluid">
+
+        <div class="row justify-content-around">
+            
+            {% if items is defined %}
+
+                <div class="col-sm-10 col-lg-8">
+
+                    <h4 class="mb-3 mt-5">Summary</h4>
+
+                    <div class="text-left mb-5">
+                        <b>Order date:</b> {{ "now"|date("d-m-Y") }}
+                        <br><br>
+                        <b>Ordered by:</b><br>
+                        <u>Name</u>: {{ items.name }}<br>
+                        <u>Phone</u>: {{ items.phone }}<br>
+                        <u>Email</u>: {{ items.email }}
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr class="font-weight-bold">
+                                <td>Product name</td>
+                                <td>Quantity</td>
+                                <td>Unit price</td>
+                                <td>Full price</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {% for i in 0..(items.productName|length - 1) %}
+                                <tr>
+                                    <td>{{ items.productName[i] }}</td>
+                                    <td>{{ items.quantity[i] }}</td>
+                                    <td>{{ items.unitPrice[i] }}</td>
+                                    <td>{{ items.totalPrice[i] }}</td>
+                                </tr>
+                            {% endfor %}
+
+                        </tbody>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="font-weight-bold">Total amount</td>
+                            <td class="font-weight-bold">{{ items.totalAmount }}</td>
+                        </tr>
+
+                    </table>
+                
+                </div>
+
+            {% endif %}
+
+        </div>
+        
+    </section>
+
+{% endblock %}

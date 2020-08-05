@@ -40,10 +40,6 @@
                         <li class="nav-item">
                             <a class="nav-link {{ current_page == '/new.html' ? 'active' : '' }}" href="/order/new">Order</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link {{ current_page == '/summary.html' ? 'active' : 'disabled' }}" href="/order/summary">Summary</a>
-                        </li>
                         
                     </ul>
                     
@@ -62,7 +58,7 @@
         <footer>
             
             <div class="col my-2 footer">
-                &copy; {{ "now"|date("m/d/Y") }}
+                &copy; {{ "now"|date("d/m/Y") }}
             </div>
             
         </footer>
