@@ -18,17 +18,20 @@
                     
                     <div class="form-group text-left">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name">
+                        <small class="form-text text-danger"></small>
                     </div>
 
                     <div class="form-group text-left">
                         <label for="phone">Phone number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                        <input type="tel" class="form-control" id="phone" name="phone">
+                        <small class="form-text text-danger"></small>
                     </div>
 
                     <div class="form-group text-left">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="email@address.com" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="email@address.com">
+                        <small class="form-text text-danger"></small>
                     </div>
 
                 </div>
@@ -50,10 +53,10 @@
                         <tbody id="elements">
                             <tr class="element">
                                 <td><input type="checkbox" name="record"></td>
-                                <td><input type="text" class="form-control form-control-sm" name="productName[]" required></td>
-                                <td><input type="number" class="form-control form-control-sm" name="quantity[]" step="1" required></td>
-                                <td><input type="number" class="form-control form-control-sm" name="unitPrice[]" step="0.01" required></td>
-                                <td><input type="number" class="form-control form-control-sm" name="totalPrice[]" readonly></td>
+                                <td><input type="text" class="form-control form-control-sm" name="productName[]"><small class="form-text text-danger"></small></td>
+                                <td><input type="number" class="form-control form-control-sm" name="quantity[]" step="1"><small class="form-text text-danger"></small></td>
+                                <td><input type="number" class="form-control form-control-sm" name="unitPrice[]" step="0.01"><small class="form-text text-danger"></small></td>
+                                <td><input type="number" class="form-control form-control-sm" name="totalPrice[]" readonly><small class="form-text text-danger"></small></td>
                             </tr>
                         </tbody>
                     </table>
@@ -67,7 +70,7 @@
                         </div>
                         <input type="number" class="form-control" name="totalAmount" readonly>
                     </div>
-                    
+
                     <div class="my-5">
                         <button class="col-6 btn btn-lg btn-primary" type="submit">Checkout</button>
                     </div>
