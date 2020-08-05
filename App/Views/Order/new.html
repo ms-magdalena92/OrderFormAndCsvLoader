@@ -18,20 +18,20 @@
                     
                     <div class="form-group text-left">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                        <small class="form-text text-danger"></small>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ items.name }}">
+                        <small class="form-text text-danger">{{ items.validationErrors['name'] }}</small>
                     </div>
 
                     <div class="form-group text-left">
                         <label for="phone">Phone number</label>
-                        <input type="tel" class="form-control" id="phone" name="phone">
-                        <small class="form-text text-danger"></small>
+                        <input type="tel" class="form-control" id="phone" name="phone" value="{{ items.phone }}">
+                        <small class="form-text text-danger">{{ items.validationErrors['phone'] }}</small>
                     </div>
 
                     <div class="form-group text-left">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="email@address.com">
-                        <small class="form-text text-danger"></small>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="email@address.com" value="{{ items.email }}">
+                        <small class="form-text text-danger">{{ items.validationErrors['email'] }}</small>
                     </div>
 
                 </div>
@@ -53,11 +53,22 @@
                         <tbody id="elements">
                             <tr class="element">
                                 <td><input type="checkbox" name="record"></td>
-                                <td><input type="text" class="form-control form-control-sm" name="productName[]"><small class="form-text text-danger"></small></td>
-                                <td><input type="number" class="form-control form-control-sm" name="quantity[]" step="1"><small class="form-text text-danger"></small></td>
-                                <td><input type="number" class="form-control form-control-sm" name="unitPrice[]" step="0.01"><small class="form-text text-danger"></small></td>
-                                <td><input type="number" class="form-control form-control-sm" name="totalPrice[]" readonly><small class="form-text text-danger"></small></td>
+                                <td><input type="text" class="form-control form-control-sm" name="productName[]" value="{{ items.productName[0] }}"><small class="form-text text-danger">{{ items.validationErrors['productName0'] }}</small></td>
+                                <td><input type="number" class="form-control form-control-sm" name="quantity[]" step="1" value="{{ items.quantity[0] }}"><small class="form-text text-danger">{{ items.validationErrors['quantity0'] }}</small></td>
+                                <td><input type="number" class="form-control form-control-sm" name="unitPrice[]" step="0.01" value="{{ items.unitPrice[0] }}"><small class="form-text text-danger">{{ items.validationErrors['unitPrice0'] }}</small></td>
+                                <td><input type="number" class="form-control form-control-sm" name="totalPrice[]" readonly value="{{ items.totalPrice[0] }}"><small class="form-text text-danger"></small></td>
                             </tr>
+                            {% if (items is defined) and items.productName|length > 1 %}
+                                {% for i in 1..(items.productName|length - 1) %}
+                                    <tr class="element">
+                                        <td><input type="checkbox" name="record"></td>
+                                        <td><input type="text" class="form-control form-control-sm" name="productName[]" value="{{ items.productName[i] }}"><small class="form-text text-danger">{{ items.validationErrors['productName' ~ i] }}</small></td>
+                                        <td><input type="number" class="form-control form-control-sm" name="quantity[]" step="1" value="{{ items.quantity[i] }}"><small class="form-text text-danger">{{ items.validationErrors['quantity' ~ i] }}</small></td>
+                                        <td><input type="number" class="form-control form-control-sm" name="unitPrice[]" step="0.01" value="{{ items.unitPrice[i] }}"><small class="form-text text-danger">{{ items.validationErrors['unitPrice' ~ i] }}</small></td>
+                                        <td><input type="number" class="form-control form-control-sm" name="totalPrice[]" readonly value="{{ items.totalPrice[i] }}"><small class="form-text text-danger"></small></td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %} 
                         </tbody>
                     </table>
                     
@@ -68,7 +79,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text font-weight-bold">Total amount</span>
                         </div>
-                        <input type="number" class="form-control" name="totalAmount" readonly>
+                        <input type="number" class="form-control" name="totalAmount" value="{{ items.totalAmount }}" readonly>
                     </div>
 
                     <div class="my-5">

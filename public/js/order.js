@@ -99,7 +99,7 @@ function validateInput()
 
             $(this).next().html('This field is required.');
         }
-        else if(!$.isNumeric(quantity) || !quantity.match(/^[0-9]+$/)) {
+        else if(!$.isNumeric(quantity) || !quantity.match(/^[0-9]+$/) || quantity < 1) {
 
             $(this).next().html('Please enter positive integer.');
         }
@@ -112,7 +112,7 @@ function validateInput()
 
         var unitPrice = $(this).val();
         
-        if(unitPrice === '') {
+        if(unitPrice == '') {
 
             $(this).next().html('This field is required.');
         }
@@ -121,7 +121,7 @@ function validateInput()
             $(this).next().html('Please enter valid positive number.');
         }
         else {
-            $(this).next().html('');
+            $(this).next().empty();
         }
     }
 
@@ -181,8 +181,11 @@ $("form").submit(function(e){
 
     $('input').each(validateInput);
 
-    if($('small').html() !== '') {
+    $('small').each(function() {
 
-        e.preventDefault();
-    }
+        if($(this).html() !== '') {
+
+            e.preventDefault();
+        }
+    });
 });
