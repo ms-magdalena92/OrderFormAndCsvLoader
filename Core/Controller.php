@@ -24,4 +24,10 @@ abstract class Controller
             throw new \Exception("Method not found in the controller.");
         }
     }
+
+    public function redirect($url)
+    {
+        header('Location: http://'.$_SERVER['HTTP_HOST'].$url, true, 303);
+        exit;
+    }
 }
