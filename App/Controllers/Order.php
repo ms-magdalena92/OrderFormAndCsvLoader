@@ -18,8 +18,7 @@ class Order extends \Core\Controller
 
         if($items -> validateForm()) {
             
-            //$this -> redirect('/order/summary');
-            echo 'success';
+            View::renderTemplate('Order/summary.html', ['items' => $items]);
             
         } else {
             
