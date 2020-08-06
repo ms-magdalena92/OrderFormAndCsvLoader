@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Core\View;
 use \App\File;
+use \App\Models\Products;
 
 class CsvFile extends \Core\Controller
 {
@@ -21,8 +22,8 @@ class CsvFile extends \Core\Controller
             $productsArray = File::convertCsvIntoArray($_FILES['csvFile']);
 
             if (!empty($productsArray)) {
-
                 
+                $products = new Products($productsArray);
 
             } else {
 
