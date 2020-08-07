@@ -17,6 +17,15 @@
         </div>
         {% endif %}
 
+        {% if products is defined %}
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            Records have been successfully imported.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+
         <h5 class="bg-light py-2 my-4">Upload CSV File</h5>
 
         <div class="row justify-content-around">
@@ -38,8 +47,56 @@
             </div>
 
         </div>
-            
-        </form>
+
+        {% if products is defined %}
+
+        <table class="col-lg-10 table table-responsive-sm table-striped mx-auto my-4">
+                
+            <tbody>
+                        
+                <thead>
+                    <caption class="py-2 text-white bg-secondary">Import Information</caption>
+                    <tr>
+                        <th>Table name</th>
+                        <th>Total records</th>
+                        <th>Saved record</th>
+                        <th>Incorrect or duplicated records</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>product</td>
+                    <td>{{ products.totalRecords }}</td>
+                    <td>{{ products.addedProducts }}</td>
+                    <td>{{ products.totalRecords - products.addedProducts }}</td>
+                </tr>
+
+                <tr>
+                    <td>author</td>
+                    <td>{{ products.totalRecords }}</td>
+                    <td>{{ products.addedAuthors }}</td>
+                    <td>{{ products.totalRecords - products.addedAuthors }}</td>
+                </tr>
+
+                <tr>
+                    <td>producer</td>
+                    <td>{{ products.totalRecords }}</td>
+                    <td>{{ products.addedProducers }}</td>
+                    <td>{{ products.totalRecords - products.addedProducers }}</td>
+                </tr>
+
+                <tr>
+                    <td>publication_date</td>
+                    <td>{{ products.totalRecords }}</td>
+                    <td>{{ products.addedDates }}</td>
+                    <td>{{ products.totalRecords - products.addedDates }}</td>
+                </tr>
+
+            </tbody>
+                    
+        </table>
+
+        {% endif %}
         
     </section>
 

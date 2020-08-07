@@ -27,7 +27,7 @@ class CsvFile extends \Core\Controller
 
                 $products -> saveProductsToDB();
 
-                var_dump($products);
+                View::renderTemplate('File/upload.html', ['products' => $products]);
             }
             else if (count($productsArray) == 0) {
                 

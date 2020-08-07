@@ -15,3 +15,9 @@ body {
     position: absolute;
     bottom: 0;
 }
+
+caption {
+    caption-side: top;
+    text-align: center;
+    font-size: 1.3em;
+}
