@@ -22,7 +22,7 @@ class View
 
     public static function renderTemplate($template, $args = [])
     {
-        $currentPage = strstr($template, '/');
+        $currentView = strstr($template, '/', true);
         
         static $twig = null;
         
@@ -31,7 +31,7 @@ class View
             $loader = new \Twig\Loader\FilesystemLoader('../App/Views');
             $twig = new \Twig\Environment($loader);
             
-            $twig -> addGlobal('current_page', $currentPage);
+            $twig -> addGlobal('current_view', $currentView);
         }
         
         echo $twig -> render($template, $args);

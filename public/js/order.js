@@ -87,6 +87,7 @@ function validateInput()
             $(this).next().html('Product name must contain letters and numbers only.');
         }
         else {
+
             $(this).next().html('');
         }
     }
@@ -104,6 +105,7 @@ function validateInput()
             $(this).next().html('Please enter positive integer.');
         }
         else {
+
             $(this).next().html('');
         }
     }
@@ -121,6 +123,7 @@ function validateInput()
             $(this).next().html('Please enter valid positive number.');
         }
         else {
+
             $(this).next().empty();
         }
     }
@@ -138,6 +141,7 @@ function validateInput()
             $(this).next().html('Name must contain letters only.');
         }
         else {
+
             $(this).next().html('');
         }
     }
@@ -155,6 +159,7 @@ function validateInput()
             $(this).next().html('Enter valid phone number');
         }
         else {
+
             $(this).next().html('');
         }
     }
@@ -172,6 +177,7 @@ function validateInput()
             $(this).next().html('Enter valid email address');
         }
         else {
+            
             $(this).next().html('');
         }
     }

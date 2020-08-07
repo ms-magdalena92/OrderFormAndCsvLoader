@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pl">
 
 <head>
 
@@ -38,7 +38,11 @@
                     <ul class="navbar-nav mx-auto">
                         
                         <li class="nav-item">
-                            <a class="nav-link {{ current_page == '/new.html' ? 'active' : '' }}" href="/order/new">Order</a>
+                            <a class="nav-link {{ current_view == 'Order' ? 'active' : '' }}" href="/order/new">Order</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ current_view == 'File' ? 'active' : '' }}" href="/csv-file/upload">Upload CSV</a>
                         </li>
                         
                     </ul>
