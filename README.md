@@ -8,4 +8,5 @@ Exercise 1 and 3
 3. Configure the root of your web server in 'httpd.conf' file: change localhost document root directory to public folder of downloaded repository
 (e.g. "{pathToDownloadedRepository}/recruitment-task-master/public")
 4. Restart your web server
-5. Go to http://localhost/ in your browser
+5. Create 'products' database in your database server. Import products.sql file to the created database. All database config settings are stored in App\Config.php file of downloaded repository.
+6. Go to http://localhost/ in your browser
