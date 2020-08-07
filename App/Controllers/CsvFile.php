@@ -21,11 +21,19 @@ class CsvFile extends \Core\Controller
 
             $productsArray = File::convertCsvIntoArray($_FILES['csvFile']);
 
-            if (!empty($productsArray)) {
-                
+            if (count($productsArray)) {
+
                 $products = new Products($productsArray);
 
-            } else {
+                $products -> saveProductsToDB();
+
+                var_dump($products);
+            }
+            else if (count($productsArray) == 0) {
+                
+                View::renderTemplate('File/upload.html', ['fileError' => 'Selected file is empty.']);
+            }
+            else {
 
                 View::renderTemplate('File/upload.html', ['fileError' => 'Cannot read the file. Please try again or check if the file is valid.']);
             }
